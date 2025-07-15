@@ -1,113 +1,111 @@
-import React from "react";
+import React, { useState } from "react";
+import "./Styles/filter.css";
+import Header from "./header";
 
-class Filter extends React.Component{
-    render(){
-        return(
+const Filter = () => {
+  const [location, setLocation] = useState("");
+
+  const locations = ["Fort", "Bandra", "Andheri", "Colaba"];
+  const places = [
+    {
+      name: "The Big Chill Cakery",
+      location: "FORT",
+      address: "Shop 1, Plot D, Samruddhi Complex, Chincholi ...",
+      cuisines: "Bakery",
+      cost: 700,
+    },
+    {
+      name: "The Bake Shop",
+      location: "FORT",
+      address: "Shop 1, Plot D, Samruddhi Complex, Chincholi ...",
+      cuisines: "Bakery",
+      cost: 700,
+    },
+  ];
+
+  return (
+    <div className="page">
+      <Header/>
+
+      <h2 className="title">Breakfast Places in Mumbai</h2>
+      <div className="container">
+        <aside className="filters">
+          <h3>Filters</h3>
+          <label>Select Location</label>
+          <select value={location} onChange={(e) => setLocation(e.target.value)}>
+            <option value="">Select Location</option>
+            {locations.map((loc) => (
+              <option key={loc}>{loc}</option>
+            ))}
+          </select>
+
+          <div className="filter-group">
+            <h4>Cuisine</h4>
+            {["North Indian", "South Indian", "Chinese", "Fast food", "Street food"].map((cuisine) => (
+              <div key={cuisine}>
+                <input type="checkbox" id={cuisine} />
+                <label htmlFor={cuisine}>{cuisine}</label>
+              </div>
+            ))}
+          </div>
+
+          <div className="filter-group">
+            <h4>Cost For Two</h4>
+            {[
+              "Less than ₹500",
+              "₹500 to ₹1000",
+              "₹1000 to ₹1500",
+              "₹1500 to ₹2000",
+              "₹2000+",
+            ].map((range, index) => (
+              <div key={index}>
+                <input type="radio" name="cost" id={`cost${index}`} />
+                <label htmlFor={`cost${index}`}>{range}</label>
+              </div>
+            ))}
+          </div>
+
+          <div className="filter-group">
+            <h4>Sort</h4>
             <div>
-                <div className="div">
-                    <div className="div1">
-                        <h1 className="logo">e!</h1>
-                        <button className="login">login</button>
-                        <button className="create"> create an account</button>
-                    </div>
-                </div>
-                <div className="div2">
-                    <h1 className="heading1">Breakfast places in Mumbai</h1>
-                    <div className="smallbox">
-                        <input type="search" name="Location" list="sort" placeholder="Filter\Sort" className="smallbox"/>
-                        <datalist id="sort">
-                            <option value="Filter">Filter</option>
-                            <option value="Sort">Sort</option>
-                            
-                        </datalist>
-                    </div>
-                    <div className="div3">
-                        <h2 className="hide">Filters</h2>
-                        <p className="hide">Search Location</p>
-                        <input type="search" name="Location" list="cities" placeholder="Select Location" className="list1"/>
-                        <datalist id="cities">
-                            <option value="Delhi">Delhi</option>
-                            <option value="Mumbai">Mumbai</option>
-                            <option value="Kolkata">Kolkata</option>
-                            <option value="Chennai">Chennai</option>
-                        </datalist>
-                        <p className="hide">Cuisine</p>
-                    
-                        <input type="checkbox" name="food" id="food" className="hide"/>
-                        <label className="hide">North Indian</label>
-                        <br/>
-                        <input type="checkbox" name="food" id="food" className="hide"/>
-                        <label className="hide">South Indian</label>
-                        <br/>
-                        <input type="checkbox" name="food" id="food" className="hide"/>
-                        <label className="hide">Chinese</label>
-                        <br/>
-                        <input type="checkbox" name="food" id="food" className="hide"/>
-                        <label className="hide">Fast Food</label>
-                        <br/>
-                        <input type="checkbox" name="food" id="food" className="hide"/>
-                        <label className="hide">Street Food</label>
-                        <br/>
-                        <p className="hide">Cost for two</p>
-                        <input type="radio" name="cost" id="cost" className="hide"/>
-                        <label for="" className="hide">less than $500</label>
-                        <br/>
-                        <input type="radio" name="cost" id="cost" className="hide"/>
-                        <label for="" className="hide">$500 to $1000</label>
-                        <br/>
-                        <input type="radio" name="cost" id="cost" className="hide"/>
-                        <label for="" className="hide">$1000 to $1500</label>
-                        <br/>
-                        <input type="radio" name="cost" id="cost" className="hide"/>
-                        <label for="" className="hide">$1500 to $2000</label>
-                        <br/>
-                        <input type="radio" name="cost" id="cost" className="hide"/>
-                        <label for="" className="hide">$2000+</label>
-                        <p className="hide">Sort</p>
-                        <input type="radio" name="cost" id="cost" className="hide"/>
-                        <label for="" className="hide">price low to high</label>
-                        
-                        <br/>
-                        <input type="radio" name="cost" id="cost" className="hide"/>
-                        <label for="" className="hide">price high to low</label>
-
-                    </div>
-                    <div className="container">
-                        <div className="box">
-                            <img className="image" src="f1.jpg" alt=""/>
-                            <h1 className="heading"> Breakfast  </h1>
-                            <h5 className="heading2">Fort</h5>
-                            <p className="description"> Start your day with exclusive Breakfast option </p>
-                            <hr/>
-                            <p className="para1">Cuisine:</p>
-                            <p className="para2">Bakery</p>
-                            <p className="para1">cost for two:</p>
-                            <p className="para2">$500</p>
-                        </div>
-                        <br/>
-                        <div className="box">
-                            <img className="image" src="f2.jpg" alt=""/>
-                            <h1 className="heading"> Lunch</h1>
-                            <h5 className="heading2">Fort</h5>
-                            <p className="description">Start your day with exclusive Breakfast option </p>
-                            <hr/>
-                            <p className="para1">Cuisine:</p>
-                            <p className="para2">Bakery</p>
-                            <p className="para1">cost for two:</p>
-                            <p className="para2">$500</p>
-                        </div>
-                        <br/>
-                        <button className="button1">{'<'}</button>
-                        <button className="button2">1</button>
-                        <button className="button">2</button>
-                        <button className="button">3</button>
-                        <button className="button">4</button>
-                        <button className="button">5</button>
-                        <button className="button">{'>'}</button>
-                    </div>
-                </div>
+              <input type="radio" name="sort" id="lowToHigh" />
+              <label htmlFor="lowToHigh">Price low to high</label>
             </div>
-        )
-    }
-}
+            <div>
+              <input type="radio" name="sort" id="highToLow" />
+              <label htmlFor="highToLow">Price high to low</label>
+            </div>
+          </div>
+        </aside>
+
+        <main className="results">
+          {places.map((place, index) => (
+            <div className="card" key={index}>
+              <img src="https://via.placeholder.com/100" alt="Food" />
+              <div className="card-content">
+                <h3>{place.name}</h3>
+                <p className="location">{place.location}</p>
+                <p className="address">{place.address}</p>
+                <hr />
+                <p>CUISINES: <span>{place.cuisines}</span></p>
+                <p>COST FOR TWO: ₹{place.cost}</p>
+              </div>
+            </div>
+          ))}
+
+          <div className="pagination">
+            <button>{`<`}</button>
+            {[1, 2, 3, 4, 5].map((num) => (
+              <button key={num} className={num === 1 ? "active" : ""}>
+                {num}
+              </button>
+            ))}
+            <button>{`>`}</button>
+          </div>
+        </main>
+      </div>
+    </div>
+  );
+};
+
 export default Filter;

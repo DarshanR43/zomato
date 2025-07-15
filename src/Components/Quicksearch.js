@@ -14,27 +14,27 @@ class Quicksearch extends React.Component {
               <p className="description">Start your day with exclusive breakfast options.</p>
             </div>
             <div className="box">
-              <img className="image" src="./images/f1.jpg" alt="Lunch" />
+              <img className="image" src="./images/f2.jpg" alt="Lunch" />
               <h1 className="heading">Lunch</h1>
               <p className="description">Enjoy delicious lunch menus from top restaurants.</p>
             </div>
             <div className="box">
-              <img className="image" src="./images/f1.jpg" alt="Snacks" />
+              <img className="image" src="./images/f3.jpg" alt="Snacks" />
               <h1 className="heading">Snacks</h1>
               <p className="description">Grab a quick bite with our snack selections.</p>
             </div>
             <div className="box">
-              <img className="image" src="./images/f1.jpg" alt="Dinner" />
+              <img className="image" src="./images/f4.jpg" alt="Dinner" />
               <h1 className="heading">Dinner</h1>
               <p className="description">End your day with a hearty dinner experience.</p>
             </div>
             <div className="box">
-              <img className="image" src="./images/f1.jpg" alt="Drinks" />
+              <img className="image" src="./images/f5.jpg" alt="Drinks" />
               <h1 className="heading">Drinks</h1>
               <p className="description">Find the best places for drinks and refreshments.</p>
             </div>
             <div className="box">
-              <img className="image" src="./images/f1.jpg" alt="Night life" />
+              <img className="image" src="./images/f6.jpg" alt="Night life" />
               <h1 className="heading">Night life</h1>
               <p className="description">Explore the vibrant night life and late-night eateries.</p>
             </div>

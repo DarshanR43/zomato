@@ -3,7 +3,7 @@ import {Route, Routes, BrowserRouter} from 'react-router-dom'
 // import Header from './header'
 import Home from "./home";
 import Details from "./details";
-import Product from "./filter";
+import Filter from "./filter";
 
 const Routing  = () =>{
     return(
@@ -11,9 +11,9 @@ const Routing  = () =>{
             {/* <Home/> */}
             <Routes>
                 <Route index element={<Home />} />
-                <Route path="/About" element={<Details />} />
-                <Route path="/Content" element={<Product />} />
-                <Route path="/Product/:pid" element={<Product />} />
+                <Route path="/details" element={<Details />} />
+                <Route path="/filter" element={<Filter />} />
+                {/* <Route path="/Product/:pid" element={<Product />} /> */}
             </Routes>
         </BrowserRouter>
     );

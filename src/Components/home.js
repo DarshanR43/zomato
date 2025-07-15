@@ -6,10 +6,12 @@ import Quicksearch from "./Quicksearch";
 class Home extends React.Component {
   render() {
     return (
-      <main>
+      <main className="home-main">
         <Wallpaper />
-        <Quicksearch />
-        <footer style={{ textAlign: "center", marginTop: "2rem", color: "#888" }}>
+        <section className="quicksearch-section">
+          <Quicksearch />
+        </section>
+        <footer className="home-footer">
           <small>&copy; {new Date().getFullYear()} Zomato. All rights reserved.</small>
         </footer>
       </main>
