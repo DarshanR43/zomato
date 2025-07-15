@@ -1,12 +1,9 @@
 import React from "react";
-import logo from "./images/image01.webp";
-import "./Home.css";
-
-class Wallpaper extends React.Component {
-  render() {
-    return (
-        <header className="a">
-          <img className="bg" src={logo} alt="Zomato background" />
+class Wallpaper extends React.Component{
+    render(){
+        return(
+            <header className="a">
+          <img className="bg" src="./images/image01.webp" alt="Zomato background" />
           <button className="three" aria-label="Login">Login</button>
           <button className="four" aria-label="Create an account">Create an account</button>
           <h1 className="logo" aria-label="Zomato logo">e!</h1>
@@ -33,9 +30,7 @@ class Wallpaper extends React.Component {
             aria-label="Search for Restaurants"
           />
         </header>
-        
-    );
-  }
+        )
+    }
 }
-
 export default Wallpaper;

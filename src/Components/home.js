@@ -1,5 +1,5 @@
 import React from "react";
-import "./Home.css";
+import "./Styles/home.css";
 import Wallpaper from "./wallpaper";
 import Quicksearch from "./Quicksearch";
 
