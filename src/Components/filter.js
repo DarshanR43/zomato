@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./Styles/filter.css";
-import Header from "./header";
 
 const Filter = () => {
   const [location, setLocation] = useState("");
@@ -25,8 +24,6 @@ const Filter = () => {
 
   return (
     <div className="page">
-      <Header/>
-
       <h2 className="title">Breakfast Places in Mumbai</h2>
       <div className="container">
         <aside className="filters">

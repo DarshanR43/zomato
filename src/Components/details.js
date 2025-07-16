@@ -2,13 +2,11 @@ import React from "react";
 import Carousel from "./carousel";
 import TabsSection from "./react_tabs";
 import "./Styles/details.css";
-import Header from './header'
 
 
 const Details = () => {
   return (
     <div>
-        <Header/>
         <div className="details-page">
         <Carousel />
             <div className="header">

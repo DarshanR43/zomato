@@ -3,28 +3,12 @@
 }
 
 .header {
-  background-color: #e74c3c;
-  padding: 10px 20px;
+  width: 100%;
+  padding: 10px 50px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-}
-
-
-.logo {
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.auth-buttons button {
-  margin-left: 10px;
-  padding: 6px 12px;
-  border: none;
-  background: white;
-  color: #e74c3c;
-  border-radius: 4px;
-  font-weight: bold;
-  cursor: pointer;
+  margin-top: 0px;
+  z-index: 1000; /* Helpful if position is absolute */
 }
 
 .logo-circle {
@@ -40,6 +24,30 @@
   justify-content: center;
 }
 
+/* Push auth buttons to the right no matter what */
+.auth-buttons {
+  display: flex;
+  gap: 10px;
+  margin-left: auto; /* This ensures it stays on the right */
+}
+
+.auth-buttons button {
+  padding: 6px 12px;
+  border: 2px solid white;
+  background: transparent;
+  color: #ffffff;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.auth-buttons button:hover {
+  background-color: #fcebea;
+}
+
+
+/* filter */
 .title {
   padding: 20px;
 }

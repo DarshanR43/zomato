@@ -6,8 +6,8 @@ class Wallpaper extends React.Component {
     return (
       <header className="wallpaper-section">
         <img className="bg" src="./images/image01.webp" alt="Zomato background" />
-        <button className="login-btn" aria-label="Login">Login</button>
-        <button className="signup-btn" aria-label="Create an account">Create an account</button>
+        {/* <button className="login-btn" aria-label="Login">Login</button>
+        <button className="signup-btn" aria-label="Create an account">Create an account</button> */}
         <h1 className="logo">e!</h1>
         <h1 className="title">Find the best Restaurants, Cafes, and Bars</h1>
         <input
