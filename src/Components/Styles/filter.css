@@ -2,13 +2,14 @@
   font-family: Arial, sans-serif;
 }
 
+/* Header */
 .header {
   width: 100%;
   padding: 10px 50px;
   display: flex;
   align-items: center;
   margin-top: 0px;
-  z-index: 1000; /* Helpful if position is absolute */
+  z-index: 1000;
 }
 
 .logo-circle {
@@ -24,11 +25,10 @@
   justify-content: center;
 }
 
-/* Push auth buttons to the right no matter what */
 .auth-buttons {
   display: flex;
   gap: 10px;
-  margin-left: auto; /* This ensures it stays on the right */
+  margin-left: auto;
 }
 
 .auth-buttons button {
@@ -47,7 +47,7 @@
 }
 
 
-/* filter */
+/* Filter */
 .title {
   padding: 20px;
 }

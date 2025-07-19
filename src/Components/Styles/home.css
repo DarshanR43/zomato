@@ -59,8 +59,9 @@
 
 .city-input, .search-input {
   position: absolute;
+  width: 240px;
   top: 220px;
-  padding: 8px 15px;
+  padding: 8px 10px;
   border: none;
   border-radius: 4px;
   font-size: 1rem;
