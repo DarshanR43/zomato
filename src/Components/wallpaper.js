@@ -1,33 +1,91 @@
 import React from "react";
+import axios from "axios";
 import "./Styles/home.css";
 
 class Wallpaper extends React.Component {
-  render() {
-  const {locationData} = this.props;
-  console.log("Received locationData:", locationData);
+  state = {
+    restaurants: [],
+    inputText: '',
+    suggestions: []
+  };
+
+  handleLocation = (event) => {
+    const locationId = Number(event.target.value);
+    axios.get("http://localhost:3000/in.json")
+      .then(response => {
+        const filtered = response.data.filter(r => r.id === locationId);
+        this.setState({
+          restaurants: filtered,
+          inputText: '',
+          suggestions: []
+        });
+      })
+      .catch(err => console.log(err));
+  };
+
+  handleSearch = (event) => {
+    const inputText = event.target.value;
+    const suggestions = this.state.restaurants.filter(item =>
+      item.restaurant.toLowerCase().includes(inputText.toLowerCase())
+    );
+    this.setState({ inputText, suggestions });
+  };
+
+  handleSelect = (item) => {
+    this.setState({
+      inputText: `${item.restaurant} - ${item.place}, ${item.city}`,
+      suggestions: []
+    });
+  };
+
+  renderSuggestions() {
+    const { suggestions, inputText } = this.state;
+    if (!inputText) return null;
+    if (suggestions.length === 0) {
+      return (
+        <ul className="suggestion-list">
+          <li>No suggestions found</li>
+        </ul>
+      );
+    }
     return (
-      <header className="wallpaper-section">
+      <ul className="suggestion-list">
+        {suggestions.map(item => (
+          <li key={item.restaurant + item.place} onClick={() => this.handleSelect(item)}>
+            {item.restaurant} - {item.place}, {item.city}
+          </li>
+        ))}
+      </ul>
+    );
+  }
+
+  render() {
+    const { locations } = this.props;
+    const { inputText } = this.state;
+
+    return (
+      <div className="wallpaper-section">
         <img className="bg" src="./images/image01.webp" alt="Zomato background" />
+        <center>
         <h1 className="logo">e!</h1>
-        <h1 className="title">Find the best Restaurants, Cafes, and Bars</h1>
-        <select className="city-input" id="cities">
-          <option key="0" value="0">Select</option>
-          {Array.isArray(locationData) && locationData.length > 0 &&
-            locationData.map((item, index) => (
-              <option key={index} value={item.city}>
-                {item.city}
-              </option>
-            ))
-          }
+        <h1 className="title">Find the best restaurants near you</h1></center>
+        <select className="city-input" onChange={this.handleLocation} defaultValue="">
+          <option value="" disabled>Select a location</option>
+          {locations.map(loc => (
+            <option key={loc.id} value={loc.id}>
+              {loc.place}, {loc.city}
+            </option>
+          ))}
         </select>
         <input
           className="search-input"
-          type="search"
-          name="Restaurants"
-          placeholder="Search for Restaurants"
-          aria-label="Search for Restaurants"
+          type="text"
+          placeholder="Search restaurant"
+          value={inputText}
+          onChange={this.handleSearch}
         />
-      </header>
+        {this.renderSuggestions()}
+      </div>
     );
   }
 }

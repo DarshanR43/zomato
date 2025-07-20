@@ -5,40 +5,24 @@ import Wallpaper from "./wallpaper";
 import Quicksearch from "./Quicksearch";
 
 class Home extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      locations: [],
-    };
-  }
+  state = { locations: [] };
 
   componentDidMount() {
-    axios({
-      method: "GET",
-      url: "http://localhost:3000/in.json",
-      headers: {
-        "X-CSCAPI-KEY": "API_KEY",
-      },
-    })
-      .then((response) => {
-        this.setState({ locations: response.data });
-      })
-      .catch((err) => console.log(err));
+    axios.get("http://localhost:3000/in1.json")
+      .then(response => this.setState({ locations: response.data }))
+      .catch(err => console.log(err));
   }
 
   render() {
     const { locations } = this.state;
-
     return (
-      <main className="home-main">
-        <Wallpaper locationData={locations} /> 
-        <section className="quicksearch-section">
-          <Quicksearch />
-        </section>
+      <>
+        <Wallpaper locations={locations} />
+        <Quicksearch />
         <footer className="home-footer">
-          <small>&copy; {new Date().getFullYear()} Zomato. All rights reserved.</small>
+          © 2025 Food Explorer
         </footer>
-      </main>
+      </>
     );
   }
 }

@@ -1,0 +1,12 @@
+[
+    { "id": 1, "place": "Andheri", "city": "Mumbai" },
+    { "id": 2, "place": "Connaught Place", "city": "Delhi" },
+    { "id": 3, "place": "Whitefield", "city": "Bengaluru" },
+    { "id": 4, "place": "Banjara Hills", "city": "Hyderabad" },
+    { "id": 5, "place": "Maninagar", "city": "Ahmedabad" },
+    { "id": 6, "place": "T. Nagar", "city": "Chennai" },
+    { "id": 7, "place": "Salt Lake", "city": "Kolkata" },
+    { "id": 8, "place": "Kothrud", "city": "Pune" },
+    { "id": 9, "place": "Malviya Nagar", "city": "Jaipur" },
+    { "id": 10, "place": "Adajan", "city": "Surat" }
+]
